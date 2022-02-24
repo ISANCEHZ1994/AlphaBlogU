@@ -1,14 +1,15 @@
 <h1>Showing Article Details: </h1>
 
-<p style="color: green"><%= notice %></p>
+<%# erb tags!! Notice the differences %>
+<p><======================= [ HOW NOT TO DO IT ] ==========================></p>
+<p><strong>Title: </strong> @article.title </p>  
+<%# Above is just plain HTML text so not what we want %> 
+<p><strong>Title: </strong> <% @article.title %> </p>
+ <%# NOTICE: that there is no equal sign for the erb tag so it knows 
+ that there should be data but not what specifcilly %>
+<p><======================================================================></p>
 
-<%= render @article %>
+<p><strong>Title: </strong> <%=@article.title%> </p>
+<p><strong>Description: </strong> <%=@article.description%> </p>
 
-<div>
-  <%= link_to "Edit this article", edit_article_path(@article) %> |
-  <%= link_to "Back to articles", articles_path %>
 
-  <p></p>
-
-  <%= button_to "Destroy this article", @article, method: :delete %>
-</div>
